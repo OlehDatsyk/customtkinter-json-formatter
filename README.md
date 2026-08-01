@@ -1,27 +1,80 @@
-# CustomTkinter JSON Formatter
+# JSON Formatter
 
-A sleek, modern developer utility application built with Python and the `customtkinter` library. It offers an easy way to read, format, and validate raw or minified JSON strings with automatic character syntax cleaning and clear validation error debugging.
+A lightweight desktop GUI application for pasting raw JSON, validating it, and viewing a cleanly indented, human-readable version. Built with Python and [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter).
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/73138dc1-55ec-4435-9b05-6a6e3a2c7ed1" alt="JSON Formatter Preview" width="350">
-  <img src="https://github.com/user-attachments/assets/dc7aece0-aa93-422b-92e5-1e133190fa32" alt="JSON Formatter Preview" width="350">
-</p>
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
 
-## 🚀 Features
+## Features
 
-* **Modern Dark Theme UI:** Styled with a professional blue accent configuration matching clean, unified visual themes.
-* **Smart Parsing Pre-Processing:** An automated string cleaning layer handles single quotes (`'`) and smart/curly quotes (`“` `”`) copied from communication apps or web pages before passing them to the validation engine.
-* **Readable Indentation Logic:** Re-encodes string structures into standard JSON format with clear 4-space architectural indentation blocks.
-* **Monospaced Input/Output Windows:** Built using Courier font configurations in both input and output elements to ensure proper code alignments.
-* **Detailed Error Catching:** Includes `try-except` blocks connected to Python's native `json.JSONDecodeError` to report explicit line and column syntax errors when inputs break.
+- 🎨 Clean, dark-themed desktop UI
+- ⚡ One-click JSON formatting and validation
+- 🧹 Automatically normalizes smart/curly quotes (e.g. copied from web pages or chat apps) into standard double quotes
+- ❌ Friendly, detailed error messages when JSON is invalid
+- 📋 Read-only output box to safely view and copy formatted results
 
-## 🛠️ Prerequisites
+## Screenshot
 
-Before running this project, you will need to have Python installed on your machine.
+> _Add a screenshot of the app here (e.g. `docs/screenshot.png`) once available._
 
-## 📦 Installation & Setup
+## Requirements
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/OlehDatsyk/customtkinter-json-formatter.git](https://github.com/OlehDatsyk/customtkinter-json-formatter.git)
-   cd customtkinter-json-formatter
+- Python 3.9 or later
+- [customtkinter](https://pypi.org/project/customtkinter/)
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+
+# (Recommended) create and activate a virtual environment
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+# Install dependencies
+pip install customtkinter
+```
+
+> New to Python, Git, or virtual environments? See [INSTRUCTION.md](INSTRUCTION.md) for a complete beginner-friendly walkthrough.
+
+## Usage
+
+Run the application:
+
+```bash
+python "JSON_Formatter.py"
+```
+
+Or, on Windows/macOS, double-click the included startup scripts:
+
+- **Windows:** `Start App.bat`
+- **macOS:** `Start App (Mac).command`
+
+Then:
+
+1. Paste any raw JSON (or near-JSON) text into the top box.
+2. Click **Format & Validate JSON ⚡**.
+3. View the formatted, indented result in the bottom box, or an error message describing what's wrong with the input.
+
+## How It Works
+
+The app reads the raw text you paste in, normalizes common copy-paste quirks (curly quotes, single quotes), then attempts to parse it using Python's built-in `json` module. If parsing succeeds, the result is re-serialized with 4-space indentation. If parsing fails, a `JSONDecodeError` message is shown, including the line/column where the problem was found.
+
+## Known Limitations
+
+- The automatic single-quote-to-double-quote replacement can corrupt valid JSON strings that legitimately contain apostrophes (e.g. `"it's"` becomes `"it"s"`). See [PROJECT_REVIEW.md](PROJECT_REVIEW.md) for details and a suggested fix.
+- Only `JSONDecodeError` is caught; other unexpected input can raise unhandled exceptions.
+
+## Contributing
+
+Issues and pull requests are welcome. Please open an issue first to discuss any significant changes.
+
+## License
+
+This project does not yet include a license file. See [PROJECT_REVIEW.md](PROJECT_REVIEW.md) for a recommendation on choosing and adding one (e.g. MIT) before making the repository public.
