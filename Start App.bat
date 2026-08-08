@@ -3,9 +3,9 @@ setlocal enabledelayedexpansion
 title JSON Formatter - Startup
 cd /d "%~dp0"
 
-echo ================================================
-echo   JSON Formatter - Startup Script (Windows)
-echo ================================================
+echo =======================================================================
+echo   JSON Formatter - Startup Script (Windows) (Was made by Oleh Datsyk)
+echo =======================================================================
 echo.
 
 REM ---------------------------------------------------------
